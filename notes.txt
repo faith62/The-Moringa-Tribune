@@ -1,0 +1,25 @@
+tribune/settings....add 'news ' in installed aps lists
+
+err:Error: pg_config executable not found.
+      
+      pg_config is required to build psycopg2 from source.  Please add the directory
+      containing pg_config to the $PATH or specify the full executable path with the
+      option:
+        sol:sudo apt install python3-dev libpq-dev...then..pip install psycopg2
+        
+installation:pip install pillow
+  alt:python3 -m pip install --upgrade pip
+      python3 -m pip install --upgrade Pillow
+
+create migration:
+  -python3.10 manage.py check ...runcheckfa-spin
+  -python manage.py makemigrations news...make makemigrations
+  -python3.10 manage.py sqlmigrate news 0001...view migration
+  -python3.10 manage.py migrate ...run migration
+
+  Since a single Article has many tags and a single tag can be in multiple Articles, they share a Many to Many relationship.
+
+runserver:python3.10 manage.py runserver  
+
+err:python manage.py makemigrations news-You are trying to add a non-nullable field 'article_image' to article without a default; we can't do that (the database needs something to populate existing rows).
+  sol:You need to provide a default value:new_field = models.CharField(max_length=140, default='SOME STRING')
